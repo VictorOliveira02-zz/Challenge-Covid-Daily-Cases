@@ -11,10 +11,13 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "jquery": "^3.6.0",
+    "json-server": "^0.17.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-jvectormap": "^0.0.16",
     "react-scripts": "5.0.0",
+    "react-simple-maps": "^2.3.0",
+    "react-tooltip": "^4.2.21",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
