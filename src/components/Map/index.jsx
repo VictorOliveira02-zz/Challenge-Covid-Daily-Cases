@@ -7,8 +7,8 @@ const Map = () => {
     const [content, setContent] = useState("");
     return (
         <Container>
-            <MapChart setTooltipContent={setContent} />
-            <ReactTooltip>{content}</ReactTooltip>
+            <MapChart title={content} setTooltipContent={setContent} />
+            <ReactTooltip title={content}>{content}</ReactTooltip>
         </Container>
     );
 }
