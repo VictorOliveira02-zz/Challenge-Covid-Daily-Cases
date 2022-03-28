@@ -1,4 +1,5 @@
-import React, { memo } from "react";
+import React, { useState, memo, useEffect } from "react";
+import { supabase } from '../../api/supabase';
 import {
     ZoomableGroup,
     ComposableMap,
@@ -20,6 +21,19 @@ const rounded = num => {
 };
 
 const MapChart = ({ setTooltipContent }) => {
+    const [data, setData] = useState([]);
+
+    async function getData() {
+        const { data } = await supabase
+            .from('data-countries')
+            .select();
+        setData(data);
+    }
+
+    useEffect(() => {
+        getData();
+    }, []);
+    console.log(data)
     return (
         <>
             <ComposableMap data-tip="" projectionConfig={{ scale: 200, }} style={{ backgroundColor: '#D6D6DA', height: '100%', width: '100%' }}>
