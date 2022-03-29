@@ -8,7 +8,7 @@ const Map = () => {
     return (
         <Container>
             <MapChart title={content} setTooltipContent={setContent} />
-            <ReactTooltip title={content}>{content}</ReactTooltip>
+            <ReactTooltip>{content}</ReactTooltip>
         </Container>
     );
 }

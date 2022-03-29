@@ -1,73 +1,41 @@
 import React, { useState, memo, useEffect } from "react";
-import { supabase } from '../../api/supabase';
-import {
-    ZoomableGroup,
-    ComposableMap,
-    Geographies,
-    Geography
-} from "react-simple-maps";
+import { ZoomableGroup, ComposableMap, Geographies, Geography, Sphere, Graticule } from "react-simple-maps";
+import { getData } from "../../database/getData";
 
-const geoUrl =
-    "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
-const rounded = num => {
-    if (num > 1000000000) {
-        return Math.round(num / 100000000) / 10 + "Bn";
-    } else if (num > 1000000) {
-        return Math.round(num / 100000) / 10 + "M";
-    } else {
-        return Math.round(num / 100) / 10 + "K";
-    }
-};
 
 const MapChart = ({ setTooltipContent }) => {
-    const [data, setData] = useState([]);
-
-    async function getData() {
-        const { data } = await supabase
-            .from('data-countries')
-            .select();
-        setData(data);
-    }
+    const [countries, setCountries] = useState([]);
+    const [position, setPosition] = useState({ coordinates: [0, 0], zoom: 1 });
 
     useEffect(() => {
-        getData();
+        getData().then(data => setCountries(data));
     }, []);
-    console.log(data)
+    console.log(countries)
     return (
         <>
-            <ComposableMap data-tip="" projectionConfig={{ scale: 200, }} style={{ backgroundColor: '#D6D6DA', height: '100%', width: '100%' }}>
-                <ZoomableGroup Positioning='center'>
+            <ComposableMap data-tip="" projectionConfig={{ rotate: [-10, 0, 0], scale: 200 }} style={{ height: '100%', width: '100%' }}>
+                <ZoomableGroup zoom={position.zoom} center={position.coordinates} onMoveEnd={() => setPosition(position)}>
+                    <Sphere stroke="#000" strokeWidth={0.3} />
+                    <Graticule stroke="#000" strokeWidth={0.3} />
                     <Geographies geography={geoUrl}>
                         {({ geographies }) =>
-                            geographies.map(geo => (
-                                <Geography
-                                    key={geo.rsmKey}
-                                    geography={geo}
-                                    onMouseEnter={() => {
-                                        const { NAME, POP_EST } = geo.properties;
-                                        setTooltipContent(`${NAME} — ${rounded(POP_EST)}`);
-                                    }}
-                                    onMouseLeave={() => {
-                                        setTooltipContent("");
-                                    }}
-                                    style={{
-                                        default: {
-                                            fill: "#FFFF",
-                                            outline: "none",
-                                        },
-                                        hover: {
-                                            fill: "#F53",
-                                            outline: "none",
-                                            cursor: "pointer"
-                                        },
-                                        pressed: {
-                                            fill: "#E42",
-                                            outline: "none"
-                                        }
-                                    }}
-                                />
-                            ))
+                            geographies.map((geo) => {
+                                return (
+                                    <Geography
+                                        key={geo.rsmKey}
+                                        geography={geo}
+                                        onMouseEnter={() => {
+                                            const { NAME, POP_EST } = geo.properties;
+                                            setTooltipContent(`${NAME} - ${POP_EST}`);
+                                        }}
+                                        onMouseLeave={() => {
+                                            setTooltipContent("");
+                                        }}
+                                    />
+                                )
+                            })
                         }
                     </Geographies>
                 </ZoomableGroup>

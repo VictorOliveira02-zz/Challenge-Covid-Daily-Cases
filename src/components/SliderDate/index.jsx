@@ -11,7 +11,9 @@ const SliderDate = () => {
     const minDate = marks[0].value;
     const maxDate = marks[marks.length - 1].value;
     const oneDay = 86400000 // One day in milliseconds
-    console.log(value);
+
+    console.log(value)
+
     return (
         <Container>
             <Slider
