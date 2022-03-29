@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Challenge Covid Daily Cases - by [Coodesh](https://coodesh.com/)
+![image](https://user-images.githubusercontent.com/64699971/160520737-ec3cc9f0-b5f9-40ea-ab78-6d906ac4b042.png)
+## Projeto desenvolvido durante o processo seletivo para Desenvolvedor Front-End - 03/2022
+* Demo: https://challenge-covid-daily-cases-lac.vercel.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🚀 Objetivo
 
-## Available Scripts
+Nesse desafio será desenvolvido uma REST API que utilizará o histórico de casos de Covid, [disponível no Kaggle](https://www.kaggle.com/yamqwe/omicron-covid19-variant-daily-cases). Caso não seja possível fazer o download, utilize o arquivo CSV neste link https://challenges.coode.sh/covid/data/covid-variants.csv.
+Também deverá desenvolver um projeto front-end para consumir as informações uma API gerada.
+O projeto a ser desenvolvido por você tem como objetivo exibir o número de casos por país, dia e variante. Para isso será necessário gerar um gráfico que mostre o mapa mundi. Atente-se, ao desenvolver a aplicação front-end, para conceitos de usabilidade e adeque a interface com elementos visuais para os usuários do seu sistema.
 
-In the project directory, you can run:
 
-### `npm start`
+## 🛠️Ferramentas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* [React Js](https://pt-br.reactjs.org/)
+* [Supabase](https://supabase.com/)
+* [VS Code](https://code.visualstudio.com/)
+* [Material UI](https://mui.com/)
+* [styled-Components](https://styled-components.com/)
+* [React-Simple-Maps](https://www.react-simple-maps.io/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 💻 Getting started
 
-### `npm test`
+### Requisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Node.js](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/).
 
-### `npm run build`
+**Clone o projeto e acesse a pasta**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+$ git clone https://github.com/VictorOliveira02/Challenge-Covid-Daily-Cases.git && cd Challenge-Covid-Daily-Cases
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Siga os passos abaixo**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Instale as dependências
+$ yarn
 
-### `npm run eject`
+# Execute o servidor web
+$ yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+O aplicativo estará disponível para acesso em seu navegador em `http://localhost:3000`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ✒️ Author
+* **Victor Alves de Oliveira** - victoralvees17@gmail.com
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
